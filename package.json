@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
+  },
+  "name": "go-the-distance-budgeting-app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kel03-byte/go-the-distance-budgeting-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kel03-byte/go-the-distance-budgeting-app/issues"
+  },
+  "homepage": "https://github.com/Kel03-byte/go-the-distance-budgeting-app#readme"
+}
