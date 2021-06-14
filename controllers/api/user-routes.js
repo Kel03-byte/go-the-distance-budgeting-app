@@ -16,6 +16,7 @@ router.get("/", async (request, response) => {
   }
 });
 
+// Create a new user
 router.post("/", async (request, response) => {
   try {
     const userData = await User.create({
@@ -29,6 +30,17 @@ router.post("/", async (request, response) => {
     });
   } catch (error) {
     response.status(400).json(error.message);
+  }
+});
+
+// Logout
+router.post("/logout", (request, response) => {
+  if (request.session.loggedIn) {
+    request.session.destroy(() => {
+      response.status(204).end();
+    });
+  } else {
+    response.status(404).end();
   }
 });
 
