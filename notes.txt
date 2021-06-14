@@ -1,0 +1,1 @@
+After a user signs up they are directed to create-holiday handlebars 
