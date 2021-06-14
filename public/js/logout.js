@@ -5,12 +5,12 @@ const logout = async () => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
-};
 
-if (response.ok) {
-  document.location.replace("/");
-} else {
-  alert("Log out unsuccessful");
-}
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert("Log out unsuccessful");
+  }
+};
 
 document.querySelector("#logout").addEventListener("click", logout);
