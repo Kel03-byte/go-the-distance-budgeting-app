@@ -76,4 +76,9 @@ router.post("/logout", (request, response) => {
   }
 });
 
+// Render Create Holiday Page
+router.get("/create-holiday", (request, response) => {
+  response.render("create-holiday");
+});
+
 module.exports = router;
