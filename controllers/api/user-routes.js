@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { response } = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const User = require("../../models/User");
@@ -30,6 +31,37 @@ router.post("/", async (request, response) => {
     });
   } catch (error) {
     response.status(400).json(error.message);
+  }
+});
+
+// Login
+router.post("/login", async (request, response) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        username: request.body.username,
+      },
+    });
+
+    if (!userData) {
+      response.status(400).json({ message: "Incorrect username or password" });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(request.body.password);
+
+    if (!validPassword) {
+      response.status(400).json({ message: "Incorrect username or password" });
+      return;
+    }
+
+    request.session.save(() => {
+      request.session.loggedIn = true;
+      response.status(200).json({ user: userData, message: "Logged In" });
+    });
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).json(error.message);
   }
 });
 
