@@ -1,12 +1,22 @@
-const router = require('express').Router();
+const { request } = require("express");
 
-router.get('/', async (req, res) => {
+const router = require("express").Router();
 
-    res.render('homepage');
+// Home route
+router.get("/", async (request, response) => {
+  response.render("homepage", {
+    loggedIn: request.session.loggedIn,
+  });
 });
 
-router.get('/signup', (req, res) => {
-    res.render('signup');
+// Sign Up route
+router.get("/signup", (request, response) => {
+  response.render("signup");
+});
+
+// Login route
+router.get("/login", (request, response) => {
+  response.render("login");
 });
 
 module.exports = router;
