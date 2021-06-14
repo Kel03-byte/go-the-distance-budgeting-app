@@ -1,20 +1,35 @@
-const router = require('express').Router();
-const User = require('../../models/User');
+const router = require("express").Router();
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const User = require("../../models/User");
 
-router.post('/signup', async (req, res) => {
-    try {
-        const userData = await User.create({
-            username: req.body.username,
-            password: req.body.password,
-            email: req.body.email
-        });
-        request.session.save(() => {
-            request.session.loggedIn = true;
-            res.status(200).json(userData);
-        });
-    } catch (error) {
-        res.status(400).json(error.message);
-    }
+// Get all users
+router.get("/", async (request, response) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ["password"] },
+    });
+    response.status(200).json(userData);
+  } catch (err) {
+    console.log(err);
+    response.status(500).json(err);
+  }
+});
+
+router.post("/", async (request, response) => {
+  try {
+    const userData = await User.create({
+      username: request.body.username,
+      password: request.body.password,
+      email: request.body.email,
+    });
+    request.session.save(() => {
+      request.session.loggedIn = true;
+      response.status(200).json(userData);
+    });
+  } catch (error) {
+    response.status(400).json(error.message);
+  }
 });
 
 module.exports = router;
