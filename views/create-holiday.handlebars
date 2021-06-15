@@ -4,34 +4,37 @@
 
 
 <!-- Holiday Input Container -->
-<form>
-    <p>Enter your Holiday Destination:
-        <input class="input" type="text" id="destination-list">
-    </p>
-</form>
+<h2>Holiday Information</h2>
+<form class="form holiday-form">
+    <label for="destination">Enter your Holiday Destination:
+        <input class="input" type="text"  name="destination-list" id="destination-list"/>
+    </label>
 
 <!-- Holiday Dates -->
 <div>
     <label for="start-date">When does your holiday start? </label>
-    <input type="date" id="start-date" name="start-date">
+    <input type="date" id="start-date" name="start-date"/>
 </div>
 
 <div>
     <label for="end-date">When does your holiday end? </label>
-    <input type="date" id="end-date" name="end-date">
+    <input type="date" id="end-date" name="end-date"/>
 
 </div>
 
 <!-- Total Budget Amount -->
-<form>
-    <p>Enter your Holiday Budget Amount:
-        $ <input class="input is-rounded " type="number" id="holiday-budget-total">
-    </p>
+
+    <label for="budget">Enter your Holiday Budget Amount:
+        $ <input class="input is-rounded " type="number" name="holiday-budget-total" id="holiday-budget-total">
+    </label>
+
+
+<button type="submit" id="holiday-submit-button" class="button">Submit</button>
 </form>
 
-<button id="holiday-submit-button" class="button is-info">Submit</button>
-
 <div id="holiday-budget-result"></div>
+
+
 
 
 <script type="text/javascript"

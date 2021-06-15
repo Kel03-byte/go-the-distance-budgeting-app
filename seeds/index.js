@@ -1,1 +1,14 @@
-const sequelize = require('../config/connection');
+const seedHoliday = require("./holidayData");
+
+const sequelize = require("../config/connection");
+
+const seedAll = async () => {
+  await sequelize.sync({ force: true });
+  console.log("\n----- DATABASE SYNCED -----\n");
+  await seedHoliday();
+  console.log("\n----- HOLIDAY SEEDED -----\n");
+
+  process.exit(0);
+};
+
+seedAll();
