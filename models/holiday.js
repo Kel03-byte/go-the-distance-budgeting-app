@@ -14,11 +14,11 @@ Holiday.init(
       allowNull: false,
     },
     start_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     end_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     // duration: {

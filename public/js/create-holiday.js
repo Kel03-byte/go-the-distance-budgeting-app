@@ -81,12 +81,10 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   console.log("budget", total_budget);
   const dateOne = document.getElementById("start-date").value;
   const dateTwo = document.getElementById("end-date").value;
-  const start_date = moment(dateOne).format("DD/MM/YYYY");
-  console.log("startdate", start_date);
-  const end_date = moment(dateTwo).format("DD/MM/YYYY");
-  console.log("enddate", end_date);
+  const start_date = dateOne;
+  const end_date = dateTwo;
 
-  const response = await fetch("/api/users/holiday", {
+  const response = await fetch("/api/holiday", {
     method: "POST",
     body: JSON.stringify({
       destination_location,
