@@ -1,5 +1,5 @@
 const holidaySubmitButton = document.getElementById("holiday-submit-button");
-const confirmButtonEl = document.createElement("button")
+const confirmButtonEl = document.createElement("button");
 
 //Event listener to collect user's input
 holidaySubmitButton.addEventListener("click", function (event) {
@@ -44,6 +44,8 @@ holidaySubmitButton.addEventListener("click", function (event) {
     confirmButtonEl.textContent = "Confirm";
     confirmButtonEl.classList = "confirm-button";
     holidayResults.appendChild(confirmButtonEl);
+    // When submit is pressed the user is taken to the holiday-details page where they can input expenses
+    confirmButtonEl.onclick = location.href = "/api/users/holiday-details";
   }
 });
 

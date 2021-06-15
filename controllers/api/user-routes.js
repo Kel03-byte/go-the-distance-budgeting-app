@@ -81,4 +81,9 @@ router.get("/create-holiday", (request, response) => {
   response.render("create-holiday");
 });
 
+// Render Holiday Details Page
+router.get("/holiday-details", (request, response) => {
+  response.render("holiday-details");
+});
+
 module.exports = router;
