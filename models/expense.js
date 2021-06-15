@@ -21,10 +21,6 @@ Expense.init(
         type: DataTypes.DECIMAL,
         allowNull: false,
     },
-    expense_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    },
   },
   {
     sequelize,
