@@ -1,7 +1,8 @@
 const { request } = require("express");
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Holiday } = require("../models");
+const { Holiday, User } = require("../models");
+
 
 // Home route
 router.get("/", async (request, response) => {
@@ -36,7 +37,8 @@ router.get("/holiday", async (request, response) => {
         "end_date",
         "total_budget",
       ],
-    });
+      include: [{model: User, attributes: ["username"]}]
+      });
     const holidays = holidayData.map((data) => data.get({ plain: true }));
     response.render("holiday", { holidays });
   } catch (error) {
@@ -45,3 +47,7 @@ router.get("/holiday", async (request, response) => {
 });
 
 module.exports = router;
+
+//
+
+
