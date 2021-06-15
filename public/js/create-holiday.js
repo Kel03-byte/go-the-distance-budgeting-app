@@ -1,4 +1,5 @@
 const holidaySubmitButton = document.getElementById("holiday-submit-button");
+const confirmButtonEl = document.createElement("button")
 
 //Event listener to collect user's input
 holidaySubmitButton.addEventListener("click", function (event) {
