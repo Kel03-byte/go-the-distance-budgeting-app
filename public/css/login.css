@@ -6,7 +6,7 @@ body{
 }
 
 
-#sign-in-container{
+#login-container{
     background-color: rgb(255, 255, 255, 0.8);
     border: solid 1.5px black;
     border-radius: 50px;
@@ -34,9 +34,6 @@ input{
 
 
 
-#email{
-    margin-left: 35px;
-}
 
 #password{
     margin-left: 5px;
@@ -46,7 +43,7 @@ button{
     font-size: 15px;
     color: white;
     border: none;
-    margin-top: 50px;
+    margin-top: 90px;
     background-color: rgb(13, 117, 117);
     border-radius: 20px;
     padding: 10px 20px 10px 20px;
