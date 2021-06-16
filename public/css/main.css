@@ -1,0 +1,20 @@
+h1{
+    color: white;
+    margin-top: 60px;
+    font-size: 50px;
+}
+
+li{
+    display: inline;
+}
+
+li a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+li a:hover{
+    color: rgb(204, 203, 203);
+}
