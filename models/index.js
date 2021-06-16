@@ -4,9 +4,9 @@ const Holiday = require("./Holiday");
 
 Holiday.belongsTo(User);
 
-Expense.belongsTo(User);
 
-User.hasMany(Expense);
+Expense.belongsTo(Holiday);
+
 
 Holiday.hasMany(Expense);
 

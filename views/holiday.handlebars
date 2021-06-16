@@ -4,14 +4,11 @@
 <p>This page will display the user's budget info</p>
 
 
-{{#if holidays.length}}
+{{!-- {{#if holidays.length}}
 {{#each holidays as |holiday|}}
 {{>holiday-details holiday}}
 {{/each}}
-{{/if}}
-
-
-
+{{/if}} --}}
 
 
 <button id="addExpenseButton">Add Expense</button>
@@ -26,8 +23,8 @@
             <input type="text" id="expense_name">
             <label>Amount: </label>
             <input type="text" id="cost" placeholder="$">
-            <label> Catagory: </label>
-            <select id="catagory">
+            <label> Category: </label>
+            <select id="category">
                 <option value="" disabled selected>Select</option>
                 <option value="trasportation">Transportation</option>
                 <option value="food">Food</option>
@@ -43,18 +40,15 @@
     <tr>
         <th>Expense</th>
         <th>Amount</th>
-        <th>Catagory</th>
+        <th>Category</th>
     </tr>
+
     <tr>
-        <td>
-            <ul id="name-list"></ul>
-        </td>
-        <td>
-            <ul id="cost-list"></ul>
-        </td>
-        <td>
-            <ul id="catagory-list"></ul>
-        </td>
+        {{#if expenses.length}}
+        {{#each expenses as |expense|}}
+        {{>holiday-details expense}}
+        {{/each}}
+        {{/if}}
     </tr>
 </table>
 
