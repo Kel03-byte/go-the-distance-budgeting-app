@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { response } = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const User = require("../../models/User");
+const { User } = require("../../models");
 
 // Get all users
 router.get("/", async (request, response) => {
