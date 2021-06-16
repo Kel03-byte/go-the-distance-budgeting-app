@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-class Expense extends Model { }
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+class Expense extends Model {}
 Expense.init(
   {
     id: {
@@ -14,18 +14,18 @@ Expense.init(
       allowNull: false,
     },
     category: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     cost: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
+      type: DataTypes.DECIMAL,
+      allowNull: false,
     },
     holiday_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'holiday',
-        key: 'id',
+        model: "holiday",
+        key: "id",
       },
     },
   },
@@ -33,7 +33,7 @@ Expense.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'expense',
+    modelName: "expense",
   }
 );
 module.exports = Expense;
