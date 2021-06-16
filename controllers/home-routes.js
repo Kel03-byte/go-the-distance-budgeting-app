@@ -1,7 +1,7 @@
 const { request } = require("express");
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Holiday, User } = require("../models");
+const { Holiday, User, Expense } = require("../models");
 
 
 // Home route
@@ -46,8 +46,22 @@ router.get("/holiday", async (request, response) => {
   }
 });
 
-module.exports = router;
-
 //
+router.get("/expenses", async (request, response) => {
+  try {
+    const expenseData = await Expense.findAll({
+      attributes: [
+        "id",
+        "expense_name",
+        "cost",
+        "catagory"
+      ],
+      });
+    const expenses = expenseData.map((data) => data.get({ plain: true }));
+    response.render("holiday", { expenses });
+  } catch (error) {
+    response.status(500).json(error);
+  }
+});
 
-
+module.exports = router;

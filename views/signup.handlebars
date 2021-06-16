@@ -1,27 +1,29 @@
-<h2>Sign Up</h2>
-<p>Lorem ipsum</p>
+<section id="sign-in-container">
+    <h2>Sign Up</h2>
 
-<form>
+    <form>
+        <div>
+            <label for="username">Username:</label>
+            <input class="form-input" type="text" id="username" />
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" />
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" type="password" id="password" />
+        </div>
+
+    </form>
+
     <div>
-        <label for="username">Username</label>
-        <input class="form-input" type="text" id="username"/>
+        <button id="sign-up-button">Sign Up</button>
     </div>
 
-    <div>
-        <label for="email">Email</label>
-        <input type="text" id="email"/>
-    </div>
-    
-   <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" id="password" />
-    </div>
+</section>
 
-    <div>
-        <button id="sign-up-button">Sign Up!</button>
-    </div>
-</form>
-
-<a href="/login">Login</a>
-
+<link rel="stylesheet" href="/css/signup.css">
 <script src="/js/signup.js"></script>

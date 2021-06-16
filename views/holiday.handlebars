@@ -9,5 +9,64 @@
 {{>holiday-details holiday}}
 {{/each}}
 {{/if}}
- 
 
+
+
+
+
+<button id="addExpenseButton">Add Expense</button>
+
+<!-- Expense Input Modal -->
+<div id="expenseModal" class="expenseModal">
+    <!-- Modal content -->
+    <div class="modalContent">
+        <span class="closeButton">&times;</span>
+        <form id="expenseForm">
+            <label> Expense name: </label>
+            <input type="text" id="expense_name">
+            <label>Amount: </label>
+            <input type="text" id="cost" placeholder="$">
+            <label> Catagory: </label>
+            <select id="catagory">
+                <option value="" disabled selected>Select</option>
+                <option value="trasportation">Transportation</option>
+                <option value="food">Food</option>
+                <option value="accomodation">Accomodation</option>
+                <option value="entertainment">Entertainment</option>
+            </select>
+            <input type="submit" id="submitButton" class="button is-info">
+        </form>
+    </div>
+</div>
+
+<table style="width:90%" id="expense-table">
+    <tr>
+        <th>Expense</th>
+        <th>Amount</th>
+        <th>Catagory</th>
+    </tr>
+    <tr>
+        <td>
+            <ul id="name-list"></ul>
+        </td>
+        <td>
+            <ul id="cost-list"></ul>
+        </td>
+        <td>
+            <ul id="catagory-list"></ul>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="/js/holiday-details.js"></script>

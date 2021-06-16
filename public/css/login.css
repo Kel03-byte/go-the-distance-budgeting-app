@@ -1,0 +1,53 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/map.jpg);
+    background-size: cover;
+}
+
+#login-container{
+    background-color: rgb(255, 255, 255, 0.8);
+    border: solid 1.5px black;
+    border-radius: 50px;
+    z-index: 100;
+    width: 30%;
+    height: 350px;
+    position: absolute;
+    left: 36%;
+    margin-top: 50px;
+}
+
+h2{
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+form{
+    text-align: left;
+    margin-left: 100px;
+}
+
+input{
+    margin-top: 20px;
+    border-radius: 20px;
+    border: solid 1px black;
+    height: 20px;
+}
+
+input:focus{
+    outline: none;
+}
+
+#password{
+    margin-left: 5px;
+}
+
+button{
+    font-size: 15px;
+    color: white;
+    border: none;
+    margin-top: 90px;
+    background-color: rgb(13, 117, 117);
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+}
