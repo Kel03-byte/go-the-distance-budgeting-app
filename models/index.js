@@ -1,12 +1,10 @@
-const Expense = require("./Expense");
-const User = require("./User");
-const Holiday = require("./Holiday");
+const Expense = require("./expense");
+const User = require("./user");
+const Holiday = require("./holiday");
 
 Holiday.belongsTo(User);
 
-
 Expense.belongsTo(Holiday);
-
 
 Holiday.hasMany(Expense);
 
