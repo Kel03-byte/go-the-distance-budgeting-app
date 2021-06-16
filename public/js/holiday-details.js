@@ -21,14 +21,14 @@ submitButton.onclick = async function (event) {
 
     const cost = document.getElementById("cost").value;
 
-    const catagory = document.getElementById("catagory").value;
+    const category = document.getElementById("category").value;
 
     const response = await fetch("/api/expenses", {
         method: "POST",
         body: JSON.stringify({
           expense_name,
           cost,
-          catagory,
+          category,
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -45,7 +45,7 @@ submitButton.onclick = async function (event) {
         return
     } else if (!cost) {
         displayModal();
-    } else if (!catagory) {
+    } else if (!category) {
         displayModal();
         return
     } else {
@@ -70,13 +70,13 @@ submitButton.onclick = async function (event) {
 
 
 
-        const catagoryListEl = $('#catagory-list')
+        const categoryListEl = $('#category-list')
 
-        const expenseCatagoryItem = $("<ul><li>" + catagory + "</li></ul>");
+        const expenseCategoryItem = $("<ul><li>" + category + "</li></ul>");
 
-        expenseCatagoryItem.appendTo(catagoryListEl);
+        expenseCategoryItem.appendTo(categoryListEl);
 
-        $(catagory);
+        $(category);
 
 
         expenseModal.style.display = "none";

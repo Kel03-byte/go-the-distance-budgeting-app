@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-class Holiday extends Model {}
+class Holiday extends Model { }
 Holiday.init(
   {
     id: {
@@ -21,13 +21,16 @@ Holiday.init(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    // duration: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    // },
     total_budget: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
   },
   {

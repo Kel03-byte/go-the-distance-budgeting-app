@@ -1,3 +1,4 @@
+const e = require("express");
 const { request } = require("express");
 const router = require("express").Router();
 const sequelize = require("../config/connection");
@@ -27,34 +28,41 @@ router.get("/create-holiday", (request, response) => {
 });
 
 // Render Holiday Details Page
-router.get("/holiday", async (request, response) => {
-  try {
-    const holidayData = await Holiday.findAll({
-      attributes: [
-        "id",
-        "destination_location",
-        "start_date",
-        "end_date",
-        "total_budget",
-      ],
-      include: [{model: User, attributes: ["username"]}]
-      });
-    const holidays = holidayData.map((data) => data.get({ plain: true }));
-    response.render("holiday", { holidays });
-  } catch (error) {
-    response.status(500).json(error);
-  }
-});
+// router.get("/holiday", async (request, response) => {
+//   try {
+//     const holidayData = await Holiday.findAll({
+//       attributes: [
+//         "id",
+//         "destination_location",
+//         "start_date",
+//         "end_date",
+//         "total_budget",
+//       ],
+//       include: [{ model: User, attributes: ["username"] },
+//       {
+//         model: Expense, attributes: ["expense_name",
+//           "cost",
+//           "category"]
+//       }]
+//     });
 
-//
-router.get("/expenses", async (request, response) => {
+//     const holidays = holidayData.map((data) => data.get({ plain: true }));
+//     response.render("holiday", { holidays });
+//     console.log("holidays = " + holidays)
+//   } catch (error) {
+//     response.status(500).json(error);
+//   }
+// });
+
+
+router.get("/holiday", async (request, response) => {
   try {
     const expenseData = await Expense.findAll({
       attributes: [
         "id",
-        "expense_name",
         "cost",
-        "catagory"
+        "category",
+        "expense_name"
       ],
       });
     const expenses = expenseData.map((data) => data.get({ plain: true }));

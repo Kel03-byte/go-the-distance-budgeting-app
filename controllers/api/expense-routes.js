@@ -9,7 +9,7 @@ router.post("/", async (request, response) => {
       const expenseData = await Expense.create({
         expense_name: request.body.expense_name,
         cost: request.body.cost,
-        catagory: request.body.catagory
+        category: request.body.category
       });
       console.log("holiday data", expenseData);
   
