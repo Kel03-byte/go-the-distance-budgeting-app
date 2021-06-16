@@ -2,7 +2,7 @@
 
 {{!-- Input details of holiday --}}
 
-
+<section id="create-holiday-container">
 <!-- Holiday Input Container -->
 <h2>Holiday Information</h2>
 <form class="form holiday-form">
@@ -25,19 +25,20 @@
 <!-- Total Budget Amount -->
 
     <label for="budget">Enter your Holiday Budget Amount:
-        $ <input class="input is-rounded " type="number" name="holiday-budget-total" id="holiday-budget-total">
+         <input class="input is-rounded " type="number" name="holiday-budget-total" placeholder="$" id="holiday-budget-total">
     </label>
 
+</form>
 
 <button type="submit" id="holiday-submit-button" class="button">Submit</button>
-</form>
 
 <div id="holiday-budget-result"></div>
 
+</section>
 
 
 
-<script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzeKsmf4v_Fu4sR7jyLifs-XZ4Qbd73VA&libraries=places&v=weekly"></script>
+<link rel="stylesheet" href="/css/create-holiday.css">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzeKsmf4v_Fu4sR7jyLifs-XZ4Qbd73VA&libraries=places&v=weekly"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/create-holiday.js"></script>
