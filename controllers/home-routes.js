@@ -54,7 +54,7 @@ router.get("/holiday", async (request, response) => {
   try {
     const expenseData = await Expense.findAll({
       attributes: ["id", "cost", "category", "expense_name"],
-      include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
+      // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
     });
 
     const expenses = expenseData.map((data) => data.get({ plain: true }));
@@ -62,7 +62,19 @@ router.get("/holiday", async (request, response) => {
 
     response.render("holiday", { expenses });
   } catch (error) {
-    response.status(500).json(error);
+    response.status(500).json(error.message);
+  }
+});
+
+router.get("/holiday", async (request, response) => {
+  try {
+    const budgetData = await Expense.findOne({ where: { total_budget: request.body.total_budget } });
+    const budget = budgetData.map((data) => data.get({ plain: true }));
+    console.log("expenses", budget);
+
+    response.render("holiday", { budget });
+  } catch (error) {
+    response.status(500).json(error.message);
   }
 });
 
