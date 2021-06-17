@@ -3,12 +3,17 @@
 
 <p>This page will display the user's budget info</p>
 
+<!-- Total Budget Amount -->
 
-{{!-- {{#if holidays.length}}
+    <label for="budget">Enter your Holiday Budget Amount:
+         <input type="number" name="holiday-budget-total" placeholder="$" id="holiday-budget-total">
+    </label>
+
+{{#if holidays.length}}
 {{#each holidays as |holiday|}}
 {{>holiday-details holiday}}
 {{/each}}
-{{/if}} --}}
+{{/if}}
 
 
 <button id="addExpenseButton">Add Expense</button>
@@ -44,11 +49,11 @@
     </tr>
 
     <tr>
-        {{#if expenses.length}}
+        {{!-- {{#if expenses.length}}
         {{#each expenses as |expense|}}
         {{>holiday-details expense}}
         {{/each}}
-        {{/if}}
+        {{/if}} --}}
     </tr>
 </table>
 

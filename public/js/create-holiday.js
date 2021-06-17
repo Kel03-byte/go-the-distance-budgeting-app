@@ -71,14 +71,11 @@ const confirmButtonEl = document.createElement("button");
 holidaySubmitButton.addEventListener("click", async function (event) {
   event.preventDefault();
   const holidayResults = document.getElementById("holiday-budget-result");
-  console.log("holoday results", holidayResults);
   const destination_location = document
     .getElementById("destination-list")
     .value.trim()
     .toUpperCase();
-  console.log("destination location", destination_location);
   const total_budget = document.getElementById("holiday-budget-total").value;
-  console.log("budget", total_budget);
   const dateOne = document.getElementById("start-date").value;
   const dateTwo = document.getElementById("end-date").value;
   const start_date = dateOne;
@@ -88,7 +85,6 @@ holidaySubmitButton.addEventListener("click", async function (event) {
     method: "POST",
     body: JSON.stringify({
       destination_location,
-      total_budget,
       start_date,
       end_date,
     }),
@@ -117,17 +113,6 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   } else {
     //If user enters all info then a message is displayed to confirm their input or to resubmit
     event.preventDefault();
-    holidayResults.textContent =
-      "You have selected to holiday at " +
-      destination_location +
-      ", from: " +
-      start_date +
-      ", till: " +
-      end_date +
-      " with $" +
-      total_budget +
-      " to spend while on holiday, is that correct?";
-    holidayResults.append();
     confirmButtonEl.textContent = "Confirm";
     confirmButtonEl.classList = "confirm-button";
     holidayResults.appendChild(confirmButtonEl);
