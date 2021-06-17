@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 class Holiday extends Model {}
+//
 Holiday.init(
   {
     id: {
