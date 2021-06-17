@@ -12,7 +12,6 @@ Expense.init(
     },
     total_budget: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
     },
     expense_name: {
       type: DataTypes.STRING,

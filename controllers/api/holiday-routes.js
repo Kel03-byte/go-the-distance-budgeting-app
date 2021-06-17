@@ -24,7 +24,7 @@ router.post("/", async (request, response) => {
       destination_location: request.body.destination_location,
       start_date: request.body.start_date,
       end_date: request.body.end_date,
-      total_budget: request.body.total_budget,
+      
     });
     console.log("holiday data", holidayData);
 
