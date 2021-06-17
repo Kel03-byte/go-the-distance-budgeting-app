@@ -1,6 +1,6 @@
-const Expense = require("./expense");
-const User = require("./user");
-const Holiday = require("./holiday");
+const Expense = require("./Expense");
+const User = require("./User");
+const Holiday = require("./Holiday");
 
 Holiday.belongsTo(User);
 
