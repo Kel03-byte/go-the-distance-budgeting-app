@@ -22,10 +22,6 @@ Holiday.init(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    total_budget: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
