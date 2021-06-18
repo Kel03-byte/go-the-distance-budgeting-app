@@ -105,9 +105,9 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   if (!destination_location) {
     alert("Please enter a destination");
     return;
-  // } else if (!total_budget) {
-  //   alert("Please enter a budget total");
-  //   return;
+    // } else if (!total_budget) {
+    //   alert("Please enter a budget total");
+    //   return;
   } else if (!dateOne) {
     alert("Please enter a start date for your holiday");
     return;
