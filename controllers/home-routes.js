@@ -23,7 +23,9 @@ router.get("/login", (request, response) => {
 
 // Render Create Holiday Page
 router.get("/create-holiday", (request, response) => {
-  response.render("create-holiday");
+  response.render("create-holiday", {
+    loggedIn: request.session.loggedIn,
+  });
 });
 
 // Render Holiday Details Page
@@ -59,7 +61,10 @@ router.get("/holiday", async (request, response) => {
     const expenses = expenseData.map((data) => data.get({ plain: true }));
     console.log("expenses", expenses);
 
-    response.render("holiday", { expenses });
+    response.render("holiday", {
+      expenses,
+      loggedIn: request.session.loggedIn,
+    });
   } catch (error) {
     response.status(500).json(error.message);
   }
