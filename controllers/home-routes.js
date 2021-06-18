@@ -58,16 +58,27 @@ router.get("/holiday", async (request, response) => {
       // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
     });
 
-    const expenses = expenseData.map((data) => data.get({ plain: true }));
-    console.log("expenses", expenses);
-
-    response.render("holiday", {
-      expenses,
-      loggedIn: request.session.loggedIn,
-    });
+    const holidays = holidayData.map((data) => data.get({ plain: true }));
+    response.render("holiday", { holidays });
   } catch (error) {
     response.status(500).json(error.message);
   }
 });
+
+// router.get("/holiday", async (request, response) => {
+//   try {
+//     const expenseData = await Expense.findAll({
+//       attributes: ["id", "cost", "category", "expense_name"],
+//       // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
+//     });
+
+//     const expenses = expenseData.map((data) => data.get({ plain: true }));
+//     console.log("expenses", expenses);
+
+//     response.render("holiday", { expenses });
+//   } catch (error) {
+//     response.status(500).json(error);
+//   }
+// });
 
 module.exports = router;

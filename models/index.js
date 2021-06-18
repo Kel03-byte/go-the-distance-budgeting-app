@@ -4,12 +4,16 @@ const Expense = require("./Expense");
 
 // Holiday will have foreign key of user id
 Holiday.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 });
+<<<<<<< HEAD
+=======
 
+// User 
 User.hasMany(Holiday, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 });
+>>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
 
 Holiday.hasMany(Expense);
 // Expense will have foreign key of holiday id
