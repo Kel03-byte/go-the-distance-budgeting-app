@@ -3,12 +3,12 @@
 const expenseModal = document.getElementById("expenseModal");
 const addExpenseButton = document.getElementById("addExpenseButton");
 const closeButton = document.getElementsByClassName("closeButton")[0];
-const budgetButton = document.getElementById('total-budget-btn')
+const budgetButton = document.getElementById("total-budget-btn");
 
 budgetButton.onclick = async function (event) {
   event.preventDefault();
 
-  const totalBudget = document.getElementById("holiday-budget")
+  const totalBudget = document.getElementById("holiday-budget");
   const total_budget = document.getElementById("total_budget").value;
 
   const response = await fetch("/api/expenses", {
@@ -21,21 +21,22 @@ budgetButton.onclick = async function (event) {
 
   if (response.ok) {
     document.location.replace("/holiday");
-    totalBudget.textContent = "You have $" + total_budget + " to spend on your holdiday!"
+    totalBudget.textContent =
+      "You have $" + total_budget + " to spend on your holdiday!";
   } else {
     alert("Please try add your post again");
   }
-}
+};
 
 addExpenseButton.onclick = function () {
   expenseModal.style.display = "block";
-}
+};
 
 closeButton.onclick = function () {
   expenseModal.style.display = "none";
-}
+};
 
-const submitButton = document.getElementById("submitButton")
+const submitButton = document.getElementById("submitButton");
 
 //On submitting the expense values the inputted information is then saved to local storage and displayed in the table
 submitButton.onclick = async function (event) {
@@ -46,7 +47,7 @@ submitButton.onclick = async function (event) {
 
   const category = document.getElementById("category").value;
 
-  const total_budget = document.getElementById('total_budget')
+  const total_budget = document.getElementById("total_budget");
 
   const response = await fetch("/api/expenses", {
     method: "POST",
@@ -66,15 +67,14 @@ submitButton.onclick = async function (event) {
 
   if (!expense_name) {
     displayModal();
-    return
+    return;
   } else if (!cost) {
     displayModal();
   } else if (!category) {
     displayModal();
-    return
+    return;
   } else {
-
-    const nameListEl = $('#name-list')
+    const nameListEl = $("#name-list");
 
     const expenseNameItem = $("<ul><li>" + expense_name + "</li></ul>");
 
@@ -82,7 +82,7 @@ submitButton.onclick = async function (event) {
 
     $(expense_name);
 
-    const amountListEl = $('#amount-list')
+    const amountListEl = $("#amount-list");
 
     const expenseAmountItem = $("<ul><li>" + cost + "</li></ul>");
 
@@ -90,7 +90,7 @@ submitButton.onclick = async function (event) {
 
     $(cost);
 
-    const categoryListEl = $('#category-list')
+    const categoryListEl = $("#category-list");
 
     const expenseCategoryItem = $("<ul><li>" + category + "</li></ul>");
 
@@ -101,5 +101,3 @@ submitButton.onclick = async function (event) {
     expenseModal.style.display = "none";
   }
 };
-
-

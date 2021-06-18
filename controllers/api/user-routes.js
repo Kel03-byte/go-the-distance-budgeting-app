@@ -28,7 +28,9 @@ router.post("/", async (request, response) => {
     });
     request.session.save(() => {
       request.session.loggedIn = true;
-      response.status(200).json(userData);
+      (request.session.user_id = userData.id),
+        (request.session.username = userData.username),
+        response.status(200).json(userData);
     });
   } catch (error) {
     response.status(400).json(error.message);
