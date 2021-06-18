@@ -69,11 +69,14 @@ const holidaySubmitButton = document.getElementById('holiday-submit-button')
 holidaySubmitButton.addEventListener("click", async function (event) {
   event.preventDefault();
   const holidayResults = document.getElementById("holiday-budget-result");
+
   console.log("holiday results", holidayResults);
+  
   const destination_location = document
     .getElementById("destination-list")
     .value.trim()
     .toUpperCase();
+
   // const total_budget = document.getElementById("holiday-budget-total").value;
   // console.log("budget", total_budget);
   const dateOne = document.getElementById("start-date").value;
@@ -125,9 +128,11 @@ holidaySubmitButton.addEventListener("click", async function (event) {
     //   total_budget +
     //   " to spend while on holiday, is that correct?";
     // holidayResults.append();
+
     // confirmButtonEl.textContent = "Confirm";
     // confirmButtonEl.classList = "confirm-button";
     // holidayResults.appendChild(confirmButtonEl);
+
     // When submit is pressed the user is taken to the holiday-details page where they can input expenses
     confirmButtonEl.onclick = location.href = "/api/users/holiday-details";
   }
