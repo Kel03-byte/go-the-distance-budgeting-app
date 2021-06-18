@@ -77,8 +77,8 @@ holidaySubmitButton.addEventListener("click", async function (event) {
     .value.trim()
     .toUpperCase();
   console.log("destination location", destination_location);
-  const total_budget = document.getElementById("holiday-budget-total").value;
-  console.log("budget", total_budget);
+  // const total_budget = document.getElementById("holiday-budget-total").value;
+  // console.log("budget", total_budget);
   const dateOne = document.getElementById("start-date").value;
   const dateTwo = document.getElementById("end-date").value;
   const start_date = dateOne;
@@ -88,7 +88,7 @@ holidaySubmitButton.addEventListener("click", async function (event) {
     method: "POST",
     body: JSON.stringify({
       destination_location,
-      total_budget,
+      // total_budget,
       start_date,
       end_date,
     }),
@@ -105,9 +105,9 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   if (!destination_location) {
     alert("Please enter a destination");
     return;
-  } else if (!total_budget) {
-    alert("Please enter a budget total");
-    return;
+  // } else if (!total_budget) {
+  //   alert("Please enter a budget total");
+  //   return;
   } else if (!dateOne) {
     alert("Please enter a start date for your holiday");
     return;
@@ -117,22 +117,22 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   } else {
     //If user enters all info then a message is displayed to confirm their input or to resubmit
     event.preventDefault();
-    holidayResults.textContent =
-      "You have selected to holiday at " +
-      destination_location +
-      ", from: " +
-      start_date +
-      ", till: " +
-      end_date +
-      " with $" +
-      total_budget +
-      " to spend while on holiday, is that correct?";
-    holidayResults.append();
+    // holidayResults.textContent =
+    //   "You have selected to holiday at " +
+    //   destination_location +
+    //   ", from: " +
+    //   start_date +
+    //   ", till: " +
+    //   end_date +
+    //   " with $" +
+    //   total_budget +
+    //   " to spend while on holiday, is that correct?";
+    // holidayResults.append();
     confirmButtonEl.textContent = "Confirm";
     confirmButtonEl.classList = "confirm-button";
     holidayResults.appendChild(confirmButtonEl);
     // When submit is pressed the user is taken to the holiday-details page where they can input expenses
-    // confirmButtonEl.onclick = location.href = "/api/users/holiday-details";
+    confirmButtonEl.onclick = location.href = "/api/users/holiday-details";
   }
 });
 

@@ -1,13 +1,19 @@
-const Expense = require("./Expense");
 const User = require("./User");
 const Holiday = require("./Holiday");
+const Expense = require("./Expense");
 
-Holiday.belongsTo(User);
+// Holiday will have foreign key of user id
+Holiday.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
-Expense.belongsTo(User);
-
-User.hasMany(Expense);
+User.hasMany(Holiday, {
+    foreignKey: 'user_id'
+});
 
 Holiday.hasMany(Expense);
+// Expense will have foreign key of holiday id
+
+Expense.belongsTo(Holiday);
 
 module.exports = { Expense, User, Holiday };
