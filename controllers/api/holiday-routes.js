@@ -9,7 +9,13 @@ router.get("/", async (request, response) => {
   try {
     const holidayData = await Holiday.findAll({
       include: [{ model: User }],
-      attributes: ["id", "username", "destination_location", "start_date", "end_date"],
+      attributes: [
+        "id",
+        "username",
+        "destination_location",
+        "start_date",
+        "end_date",
+      ],
     });
     response.status(200).json(holidayData);
     console.log("holidayData", holidayData);
@@ -22,6 +28,7 @@ router.get("/", async (request, response) => {
 router.post("/", async (request, response) => {
   try {
     const holidayData = await Holiday.create({
+      user_id: request.body.user_id,
       destination_location: request.body.destination_location,
       start_date: request.body.start_date,
       end_date: request.body.end_date,
