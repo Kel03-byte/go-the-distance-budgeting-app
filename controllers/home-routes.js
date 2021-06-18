@@ -1,4 +1,3 @@
-const e = require("express");
 const { request } = require("express");
 const router = require("express").Router();
 const sequelize = require("../config/connection");
@@ -23,9 +22,7 @@ router.get("/login", (request, response) => {
 
 // Render Create Holiday Page
 router.get("/create-holiday", (request, response) => {
-  response.render("create-holiday", {
-    loggedIn: request.session.loggedIn,
-  });
+  response.render("create-holiday");
 });
 
 // Render Holiday Details Page
@@ -53,7 +50,7 @@ router.get("/create-holiday", (request, response) => {
 
 router.get("/holiday", async (request, response) => {
   try {
-    const expenseData = await Expense.findAll({
+    const holidayData = await Expense.findAll({
       attributes: ["id", "cost", "category", "expense_name"],
       // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
     });

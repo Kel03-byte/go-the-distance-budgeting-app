@@ -1,7 +1,7 @@
 const signUpButton = document.getElementById("sign-up-button");
-var userNameInput = document.querySelector("#username");
-var userEmailInput = document.querySelector("#email");
-var userPasswordInput = document.querySelector("#password");
+const userNameInput = document.querySelector("#username");
+const userEmailInput = document.querySelector("#email");
+const userPasswordInput = document.querySelector("#password");
 
 const signupFormHandler = async (event) => {
   event.preventDefault();

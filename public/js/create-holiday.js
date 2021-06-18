@@ -71,7 +71,7 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   const holidayResults = document.getElementById("holiday-budget-result");
 
   console.log("holiday results", holidayResults);
-  
+
   const destination_location = document
     .getElementById("destination-list")
     .value.trim()

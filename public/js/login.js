@@ -1,6 +1,6 @@
 const LogInButton = document.getElementById("log-in-button");
-var userNameInput = document.querySelector("#user-login");
-var userPasswordInput = document.getElementById("password");
+const userNameInput = document.querySelector("#user-login");
+const userPasswordInput = document.getElementById("password");
 
 const loginFormHandler = async (event) => {
   event.preventDefault();

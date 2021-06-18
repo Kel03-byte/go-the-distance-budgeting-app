@@ -21,28 +21,17 @@ router.get("/", async (request, response) => {
 // Create a new holiday
 router.post("/", async (request, response) => {
   try {
-<<<<<<< HEAD
     const holidayData = await Holiday.create({
-=======
-    const holidayData = await Holiday.create( request.body, {
->>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
-      user_id: request.body.user_id,
       destination_location: request.body.destination_location,
       start_date: request.body.start_date,
       end_date: request.body.end_date,
-<<<<<<< HEAD
-      // total_budget: request.body.total_budget,
     });
     console.log("holiday data", holidayData);
 
     request.session.save(() => {
-      request.body.user_id = holidayData.id;
       request.session.loggedIn = true;
       response.status(200).json(holidayData);
-=======
->>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
     });
-    console.log("user_id", user_id);
   } catch (error) {
     response.status(400).json(error.message);
   }

@@ -64,7 +64,6 @@ submitButton.onclick = async function (event) {
     alert("Please try add your post again");
   }
 
-
   if (!expense_name) {
     displayModal();
     return
@@ -83,8 +82,6 @@ submitButton.onclick = async function (event) {
 
     $(expense_name);
 
-
-
     const amountListEl = $('#amount-list')
 
     const expenseAmountItem = $("<ul><li>" + cost + "</li></ul>");
@@ -92,8 +89,6 @@ submitButton.onclick = async function (event) {
     expenseAmountItem.appendTo(amountListEl);
 
     $(cost);
-
-
 
     const categoryListEl = $('#category-list')
 
@@ -103,10 +98,8 @@ submitButton.onclick = async function (event) {
 
     $(category);
 
-
     expenseModal.style.display = "none";
   }
-
 };
 
 
