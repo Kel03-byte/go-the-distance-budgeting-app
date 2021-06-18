@@ -35,10 +35,9 @@ router.get("/create-holiday", (request, response) => {
 //         "destination_location",
 //         "start_date",
 //         "end_date",
-//         "total_budget",
 //       ],
 //       include: [
-//         { Model: Expense, attributes: ["cost", "category", "expense_name"] },
+//         { Model: User, attributes: ["username"] },
 //       ],
 //     });
 
@@ -61,18 +60,6 @@ router.get("/holiday", async (request, response) => {
     console.log("expenses", expenses);
 
     response.render("holiday", { expenses });
-  } catch (error) {
-    response.status(500).json(error.message);
-  }
-});
-
-router.get("/holiday", async (request, response) => {
-  try {
-    const budgetData = await Expense.findOne({ where: { total_budget: request.body.total_budget } });
-    const budget = budgetData.map((data) => data.get({ plain: true }));
-    console.log("expenses", budget);
-
-    response.render("holiday", { budget });
   } catch (error) {
     response.status(500).json(error.message);
   }

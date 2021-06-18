@@ -11,13 +11,13 @@
 
 <input type="submit" id="total-budget-btn">
 
-<div id="holiday-budget">{{budget}}</div>
+{{!-- <div id="holiday-budget">{{budget}}</div> --}}
 
-{{!-- {{#if holidays.length}}
+{{#if holidays.length}}
 {{#each holidays as |holiday|}}
 {{>holiday-details holiday}}
 {{/each}}
-{{/if}} --}}
+{{/if}}
 
 
 <button id="addExpenseButton">Add Expense</button>
@@ -53,11 +53,11 @@
     </tr>
 
     <tr>
-            {{#if expenses.length}}
+            {{!-- {{#if expenses.length}}
             {{#each expenses as |expense|}}
             {{>holiday-details expense}}
             {{/each}}
-            {{/if}}
+            {{/if}} --}}
     </tr>
 </table>
 
