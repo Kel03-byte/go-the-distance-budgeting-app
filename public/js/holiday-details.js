@@ -3,84 +3,109 @@
 const expenseModal = document.getElementById("expenseModal");
 const addExpenseButton = document.getElementById("addExpenseButton");
 const closeButton = document.getElementsByClassName("closeButton")[0];
+const budgetButton = document.getElementById('total-budget-btn')
+
+budgetButton.onclick = async function (event) {
+  event.preventDefault();
+
+  const totalBudget = document.getElementById("holiday-budget")
+  const total_budget = document.getElementById("total_budget").value;
+
+  const response = await fetch("/api/expenses", {
+    method: "POST",
+    body: JSON.stringify({
+      total_budget,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    document.location.replace("/holiday");
+    totalBudget.textContent = "You have $" + total_budget + " to spend on your holdiday!"
+  } else {
+    alert("Please try add your post again");
+  }
+}
 
 addExpenseButton.onclick = function () {
-    expenseModal.style.display = "block";
+  expenseModal.style.display = "block";
 }
 
 closeButton.onclick = function () {
-    expenseModal.style.display = "none";
+  expenseModal.style.display = "none";
 }
 
 const submitButton = document.getElementById("submitButton")
 
 //On submitting the expense values the inputted information is then saved to local storage and displayed in the table
 submitButton.onclick = async function (event) {
-    event.preventDefault();
-    const expense_name = document.getElementById("expense_name").value;
+  event.preventDefault();
+  const expense_name = document.getElementById("expense_name").value;
 
-    const cost = document.getElementById("cost").value;
+  const cost = document.getElementById("cost").value;
 
-    const catagory = document.getElementById("catagory").value;
+  const category = document.getElementById("category").value;
 
-    const response = await fetch("/api/expenses", {
-        method: "POST",
-        body: JSON.stringify({
-          expense_name,
-          cost,
-          catagory,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-    
-      if (response.ok) {
-        document.location.replace("/holiday");
-      } else {
-        alert("Please try add your post again");
-      }
+  const total_budget = document.getElementById('total_budget')
 
+  const response = await fetch("/api/expenses", {
+    method: "POST",
+    body: JSON.stringify({
+      expense_name,
+      cost,
+      category,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-    if (!expense_name) {
-        displayModal();
-        return
-    } else if (!cost) {
-        displayModal();
-    } else if (!catagory) {
-        displayModal();
-        return
-    } else {
-
-        const nameListEl = $('#name-list')
-
-        const expenseNameItem = $("<ul><li>" + expense_name + "</li></ul>");
-
-        expenseNameItem.appendTo(nameListEl);
-
-        $(expense_name);
+  if (response.ok) {
+    document.location.replace("/holiday");
+  } else {
+    alert("Please try add your post again");
+  }
 
 
+  if (!expense_name) {
+    displayModal();
+    return
+  } else if (!cost) {
+    displayModal();
+  } else if (!category) {
+    displayModal();
+    return
+  } else {
 
-        const amountListEl = $('#amount-list')
+    const nameListEl = $('#name-list')
 
-        const expenseAmountItem = $("<ul><li>" + cost + "</li></ul>");
+    const expenseNameItem = $("<ul><li>" + expense_name + "</li></ul>");
 
-        expenseAmountItem.appendTo(amountListEl);
+    expenseNameItem.appendTo(nameListEl);
 
-        $(cost);
+    $(expense_name);
 
 
 
-        const catagoryListEl = $('#catagory-list')
+    const amountListEl = $('#amount-list')
 
-        const expenseCatagoryItem = $("<ul><li>" + catagory + "</li></ul>");
+    const expenseAmountItem = $("<ul><li>" + cost + "</li></ul>");
 
-        expenseCatagoryItem.appendTo(catagoryListEl);
+    expenseAmountItem.appendTo(amountListEl);
 
-        $(catagory);
+    $(cost);
 
 
-        expenseModal.style.display = "none";
-    }
+
+    const categoryListEl = $('#category-list')
+
+    const expenseCategoryItem = $("<ul><li>" + category + "</li></ul>");
+
+    expenseCategoryItem.appendTo(categoryListEl);
+
+    $(category);
+
+
+    expenseModal.style.display = "none";
+  }
 
 };
 
