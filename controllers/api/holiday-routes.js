@@ -21,10 +21,10 @@ router.get("/", async (request, response) => {
 router.post("/", async (request, response) => {
   try {
     const holidayData = await Holiday.create({
+      user_id: request.body.user_id,
       destination_location: request.body.destination_location,
       start_date: request.body.start_date,
       end_date: request.body.end_date,
-      
     });
     console.log("holiday data", holidayData);
 
