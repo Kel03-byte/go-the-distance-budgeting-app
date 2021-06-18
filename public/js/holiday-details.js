@@ -55,6 +55,7 @@ submitButton.onclick = async function (event) {
       expense_name,
       cost,
       category,
+      // total_budget,
     }),
     headers: { "Content-Type": "application/json" },
   });
@@ -62,7 +63,7 @@ submitButton.onclick = async function (event) {
   if (response.ok) {
     document.location.replace("/holiday");
   } else {
-    alert("Please try add your post again");
+    alert("Please try add your expense again");
   }
 
   if (!expense_name) {
