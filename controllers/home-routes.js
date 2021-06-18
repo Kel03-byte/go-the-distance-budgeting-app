@@ -27,43 +27,43 @@ router.get("/create-holiday", (request, response) => {
 });
 
 // Render Holiday Details Page
-// router.get("/holiday", async (request, response) => {
-//   try {
-//     const holidayData = await Holiday.findAll({
-//       attributes: [
-//         "id",
-//         "destination_location",
-//         "start_date",
-//         "end_date",
-//         "total_budget",
-//       ],
-//       include: [
-//         { Model: Expense, attributes: ["cost", "category", "expense_name"] },
-//       ],
-//     });
-
-//     const holidays = holidayData.map((data) => data.get({ plain: true }));
-//     response.render("holiday", { holidays });
-//     console.log("holidays", holidays);
-//   } catch (error) {
-//     response.status(500).json(error);
-//   }
-// });
-
 router.get("/holiday", async (request, response) => {
   try {
-    const expenseData = await Expense.findAll({
-      attributes: ["id", "cost", "category", "expense_name"],
-      include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
+    const holidayData = await Holiday.findAll({
+      attributes: [
+        "id",
+        "destination_location",
+        "start_date",
+        "end_date",
+        // "total_budget",
+      ],
+      // include: [
+      //   { Model: Expense, attributes: ["cost", "category", "expense_name"] },
+      // ],
     });
 
-    const expenses = expenseData.map((data) => data.get({ plain: true }));
-    console.log("expenses", expenses);
-
-    response.render("holiday", { expenses });
+    const holidays = holidayData.map((data) => data.get({ plain: true }));
+    response.render("holiday", { holidays });
+    console.log("holidays", holidays);
   } catch (error) {
     response.status(500).json(error);
   }
 });
+
+// router.get("/holiday", async (request, response) => {
+//   try {
+//     const expenseData = await Expense.findAll({
+//       attributes: ["id", "cost", "category", "expense_name"],
+//       // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
+//     });
+
+//     const expenses = expenseData.map((data) => data.get({ plain: true }));
+//     console.log("expenses", expenses);
+
+//     response.render("holiday", { expenses });
+//   } catch (error) {
+//     response.status(500).json(error);
+//   }
+// });
 
 module.exports = router;

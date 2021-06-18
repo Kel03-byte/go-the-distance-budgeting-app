@@ -21,6 +21,7 @@ router.get("/", async (request, response) => {
 router.post("/", async (request, response) => {
   try {
     const userData = await User.create({
+      id: request.body.id,
       username: request.body.username,
       password: request.body.password,
       email: request.body.email,
