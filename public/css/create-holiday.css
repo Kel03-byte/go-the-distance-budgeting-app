@@ -5,15 +5,15 @@ body{
     background-size: cover;
 }
 
-#sign-in-container{
+#create-holiday-container{
     background-color: rgb(255, 255, 255, 0.8);
     border: solid 1.5px black;
     border-radius: 50px;
     z-index: 100;
-    width: 30%;
-    height: 350px;
+    width: 40%;
+    height: 400px;
     position: absolute;
-    left: 36%;
+    left: 31%;
     margin-top: 50px;
 }
 
@@ -24,7 +24,7 @@ h2{
 
 form{
     text-align: left;
-    margin-left: 100px;
+    margin-left: 60px;
 }
 
 input{
@@ -32,25 +32,36 @@ input{
     border-radius: 20px;
     border: solid 1px black;
     height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 input:focus{
     outline: none;
 }
 
-#email{
-    margin-left: 35px;
+#destination-list{
+    margin-left: 45px;
 }
 
-#password{
-    margin-left: 5px;
+#start-date{
+    margin-left: 50px;
 }
+
+#end-date{
+    margin-left: 55px;
+}
+
+#holiday-budget-total{
+    margin-left: 10px;
+}
+
 
 button{
     font-size: 15px;
     color: white;
     border: none;
-    margin-top: 50px;
+    margin-top: 40px;
     background-color: rgb(13, 117, 117);
     border-radius: 20px;
     padding: 10px 20px 10px 20px;
