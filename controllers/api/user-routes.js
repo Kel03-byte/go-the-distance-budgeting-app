@@ -28,6 +28,8 @@ router.post("/", async (request, response) => {
     });
     request.session.save(() => {
       request.session.loggedIn = true;
+      request.session.user_id = userData.id;
+      request.session.username = userData.username;
       response.status(200).json(userData);
     });
   } catch (error) {
@@ -58,6 +60,9 @@ router.post("/login", async (request, response) => {
 
     request.session.save(() => {
       request.session.loggedIn = true;
+      request.session.username = userData.username;
+      request.session.user_id = userData.id;
+
       response.status(200).json({ user: userData, message: "Logged In" });
     });
   } catch (error) {

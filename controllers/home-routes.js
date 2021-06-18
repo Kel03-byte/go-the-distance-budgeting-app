@@ -56,7 +56,10 @@ router.get("/holiday", async (request, response) => {
     });
 
     const holidays = holidayData.map((data) => data.get({ plain: true }));
-    response.render("holiday", { holidays });
+    response.render("holiday", {
+      holidays,
+      loggedIn: request.session.loggedIn,
+    });
   } catch (error) {
     response.status(500).json(error.message);
   }
