@@ -71,13 +71,11 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   const holidayResults = document.getElementById("holiday-budget-result");
 
   console.log("holiday results", holidayResults);
-
+  
   const destination_location = document
     .getElementById("destination-list")
     .value.trim()
     .toUpperCase();
-
-  console.log("destination location", destination_location);
 
   // const total_budget = document.getElementById("holiday-budget-total").value;
   // console.log("budget", total_budget);
