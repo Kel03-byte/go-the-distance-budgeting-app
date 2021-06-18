@@ -27,6 +27,7 @@ router.get("/create-holiday", (request, response) => {
 });
 
 // Render Holiday Details Page
+<<<<<<< HEAD
 router.get("/holiday", async (request, response) => {
   try {
     const holidayData = await Holiday.findAll({
@@ -40,13 +41,42 @@ router.get("/holiday", async (request, response) => {
       // include: [
       //   { Model: Expense, attributes: ["cost", "category", "expense_name"] },
       // ],
+=======
+// router.get("/holiday", async (request, response) => {
+//   try {
+//     const holidayData = await Holiday.findAll({
+//       attributes: [
+//         "id",
+//         "destination_location",
+//         "start_date",
+//         "end_date",
+//       ],
+//       include: [
+//         { Model: User, attributes: ["username"] },
+//       ],
+//     });
+
+//     const holidays = holidayData.map((data) => data.get({ plain: true }));
+//     response.render("holiday", { holidays });
+//     console.log("holidays", holidays);
+//   } catch (error) {
+//     response.status(500).json(error);
+//   }
+// });
+
+router.get("/holiday", async (request, response) => {
+  try {
+    const expenseData = await Expense.findAll({
+      attributes: ["id", "cost", "category", "expense_name"],
+      // include: [{ model: Holiday, attributes: ["id", "total_budget"] }],
+>>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
     });
 
     const holidays = holidayData.map((data) => data.get({ plain: true }));
     response.render("holiday", { holidays });
     console.log("holidays", holidays);
   } catch (error) {
-    response.status(500).json(error);
+    response.status(500).json(error.message);
   }
 });
 

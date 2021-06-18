@@ -69,12 +69,19 @@ const holidaySubmitButton = document.getElementById('holiday-submit-button')
 holidaySubmitButton.addEventListener("click", async function (event) {
   event.preventDefault();
   const holidayResults = document.getElementById("holiday-budget-result");
+<<<<<<< HEAD
   console.log("holoday results", holidayResults);
+=======
+  console.log("holiday results", holidayResults);
+>>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
   const destination_location = document
     .getElementById("destination-list")
     .value.trim()
     .toUpperCase();
+<<<<<<< HEAD
   console.log("destination location", destination_location);
+=======
+>>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
   // const total_budget = document.getElementById("holiday-budget-total").value;
   // console.log("budget", total_budget);
   const dateOne = document.getElementById("start-date").value;
@@ -126,9 +133,15 @@ holidaySubmitButton.addEventListener("click", async function (event) {
     //   total_budget +
     //   " to spend while on holiday, is that correct?";
     // holidayResults.append();
+<<<<<<< HEAD
     confirmButtonEl.textContent = "Confirm";
     confirmButtonEl.classList = "confirm-button";
     holidayResults.appendChild(confirmButtonEl);
+=======
+    // confirmButtonEl.textContent = "Confirm";
+    // confirmButtonEl.classList = "confirm-button";
+    // holidayResults.appendChild(confirmButtonEl);
+>>>>>>> 2dd08ff3004006acef22043e1efd7ef95546eb4f
     // When submit is pressed the user is taken to the holiday-details page where they can input expenses
     confirmButtonEl.onclick = location.href = "/api/users/holiday-details";
   }

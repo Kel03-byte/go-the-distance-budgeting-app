@@ -5,9 +5,13 @@
 
 <!-- Total Budget Amount -->
 
-    <label for="budget">Enter your Holiday Budget Amount:
-         <input type="number" name="holiday-budget-total" placeholder="$" id="holiday-budget-total">
-    </label>
+<label for="budget">Enter your Holiday Budget Amount:
+    <input type="number" name="holiday-budget-total" placeholder="$" id="total_budget">
+</label>
+
+<input type="submit" id="total-budget-btn">
+
+{{!-- <div id="holiday-budget">{{budget}}</div> --}}
 
 {{#if holidays.length}}
 {{#each holidays as |holiday|}}
@@ -49,23 +53,13 @@
     </tr>
 
     <tr>
-        {{!-- {{#if expenses.length}}
-        {{#each expenses as |expense|}}
-        {{>holiday-details expense}}
-        {{/each}}
-        {{/if}} --}}
+            {{!-- {{#if expenses.length}}
+            {{#each expenses as |expense|}}
+            {{>holiday-details expense}}
+            {{/each}}
+            {{/if}} --}}
     </tr>
 </table>
-
-
-
-
-
-
-
-
-
-
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="/js/holiday-details.js"></script>
