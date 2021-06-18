@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/holiday");
     } else {
       alert("Unable to login!");
     }
