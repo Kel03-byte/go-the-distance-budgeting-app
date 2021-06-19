@@ -1,1 +1,1 @@
-# go-the-distance-budgeting-app
+# Go The Distance Budgeting App
