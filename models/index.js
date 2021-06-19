@@ -1,20 +1,31 @@
+// Maps the three modals together and starts building the associated tables
+
 const User = require("./User");
 const Holiday = require("./Holiday");
-const Expense = require("./Expense");
+const Expense = require("./Expense")
 
-// Holiday will have foreign key of user id
+// Holiday Modal will have foreign key of user id
 Holiday.belongsTo(User, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
-// User 
+// Links the User Modal to the Holiday Modal
 User.hasMany(Holiday, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
-Holiday.hasMany(Expense);
-// Expense will have foreign key of holiday id
+// Expense Modal will have foreign key of holiday id
+Expense.belongsTo(Holiday, {
+    foreignKey: 'holiday_id',
+    onDelete: 'CASCADE'
+});
 
-Expense.belongsTo(Holiday);
+// Links the Holiday Modal to the Expense Modal
+Holiday.hasMany(Expense, {
+    foreignKey: 'holiday_id',
+    onDelete: 'CASCADE'
+})
 
-module.exports = { Expense, User, Holiday };
+module.exports = { User, Holiday, Expense };

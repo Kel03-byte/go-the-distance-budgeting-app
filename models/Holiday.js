@@ -1,6 +1,9 @@
+// Holiday Modal which sets up the Holiday table in the database through Sequalize
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-class Holiday extends Model {}
+
+class Holiday extends Model { }
 
 Holiday.init(
   {
@@ -22,6 +25,9 @@ Holiday.init(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
+    total_budget: {
+      type: DataTypes.DECIMAL,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -37,4 +43,5 @@ Holiday.init(
     modelName: "holiday",
   }
 );
+
 module.exports = Holiday;

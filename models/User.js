@@ -1,3 +1,5 @@
+// User Modal which sets up the User table in the database through Sequalize
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
@@ -30,12 +32,13 @@ User.init(
     },
   },
   {
-    // Hash password
+    // Hashes the password before saving to the database
     hooks: {
       beforeCreate: async (user) => {
         user.password = await bcrypt.hash(user.password, 10);
         return user;
       },
+      // Hashes the password when the user updates their password and then saving to the database
       async beforeUpdate(user) {
         user.password = await bcrypt.hash(user.password, 10);
         return user;

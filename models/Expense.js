@@ -1,6 +1,9 @@
+// Expense Modal which sets up the Expense table in the database through Sequalize
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-class Expense extends Model {}
+
+class Expense extends Model { }
 
 Expense.init(
   {
@@ -9,9 +12,6 @@ Expense.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    total_budget: {
-      type: DataTypes.DECIMAL,
     },
     expense_name: {
       type: DataTypes.STRING,
@@ -40,4 +40,5 @@ Expense.init(
     modelName: "expense",
   }
 );
+
 module.exports = Expense;
