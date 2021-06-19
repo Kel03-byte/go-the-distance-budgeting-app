@@ -1,3 +1,5 @@
+// Function to sign the user up to the site and then directed to the Create A Holiday Page
+
 const signUpButton = document.getElementById("sign-up-button");
 const userNameInput = document.querySelector("#username");
 const userEmailInput = document.querySelector("#email");
@@ -20,10 +22,12 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/create-holiday");
+      document.location.replace("/create");
     } else {
       alert("Unable to sign up!");
     }
+  } else {
+    alert('Please sign up!')
   }
 };
 

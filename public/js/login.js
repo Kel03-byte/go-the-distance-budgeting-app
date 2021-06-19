@@ -1,3 +1,5 @@
+// Function to log the user into the site and then directed to the Holiday Info Page
+
 const LogInButton = document.getElementById("log-in-button");
 const userNameInput = document.querySelector("#user-login");
 const userPasswordInput = document.getElementById("password");

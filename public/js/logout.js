@@ -1,4 +1,4 @@
-// When button is clicked the user is logged out and redirected to the homepage
+// Function to log the user out of the site and redirected to the homepage
 
 const logout = async () => {
   const response = await fetch("/api/users/logout", {
