@@ -64,7 +64,7 @@
 //   .querySelector("holiday-form")
 //   .addEventListener("submit", holidayFormHandler);
 
-const holidaySubmitButton = document.getElementById('holiday-submit-button')
+const holidaySubmitButton = document.getElementById("holiday-submit-button");
 
 holidaySubmitButton.addEventListener("click", async function (event) {
   event.preventDefault();
@@ -87,6 +87,7 @@ holidaySubmitButton.addEventListener("click", async function (event) {
   const response = await fetch("/api/holiday", {
     method: "POST",
     body: JSON.stringify({
+      // user_id: request.session.user_id,
       destination_location,
       // total_budget,
       start_date,
