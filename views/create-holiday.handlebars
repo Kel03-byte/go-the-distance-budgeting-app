@@ -1,43 +1,44 @@
 {{!-- If signed up you are brought here --}}
 
-{{!-- Input details of holiday --}}
+{{!-- Input details of Holiday --}}
 
 <section id="create-holiday-container">
-<!-- Holiday Input Container -->
-<h2>Holiday Information</h2>
-<form class="form holiday-form">
-    <label for="destination">Enter your Holiday Destination:
-        <input class="input" type="text"  name="destination-list" id="destination-list"/>
-    </label>
 
-<!-- Holiday Dates -->
-<div>
-    <label for="start-date">When does your holiday start? </label>
-    <input type="date" id="start-date" name="start-date"/>
-</div>
+    <!-- Holiday Input Container -->
+    <h2>Holiday Information</h2>
 
-<div>
-    <label for="end-date">When does your holiday end? </label>
-    <input type="date" id="end-date" name="end-date"/>
+    <form class="form holiday-form">
 
-</div>
+        <!-- Holiday Desintation -->
+        <label for="destination">Enter your Holiday Destination:
+            <input class="input" type="text" name="destination-list" id="destination-list" />
+        </label>
 
-{{!-- <!-- Total Budget Amount -->
+        <!-- Holiday Dates -->
+        <div>
+            <label for="start-date">When does your holiday start? </label>
+            <input type="date" id="start-date" name="start-date" />
+        </div>
 
-    <label for="budget">Enter your Holiday Budget Amount:
-         <input class="input is-rounded " type="number" name="holiday-budget-total" placeholder="$" id="holiday-budget-total">
-    </label> --}}
+        <div>
+            <label for="end-date">When does your holiday end? </label>
+            <input type="date" id="end-date" name="end-date" />
+        </div>
 
-</form>
+        <!-- Total Budget Amount -->
+        <label for="budget">Enter your Holiday Budget Amount:
+            <input class="input is-rounded " type="number" name="holiday-budget-total" placeholder="$"
+                id="holiday-budget-total">
+        </label>
 
+    </form>
 
-<button type="submit" id="holiday-submit-button" class="button">Submit</button>
+    <button type="submit" id="holiday-submit-button" class="button">Submit</button>
 
 </section>
 
 
-
 <link rel="stylesheet" href="/css/create-holiday.css">
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzeKsmf4v_Fu4sR7jyLifs-XZ4Qbd73VA&libraries=places&v=weekly"></script>
-{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> --}}
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzeKsmf4v_Fu4sR7jyLifs-XZ4Qbd73VA&libraries=places&v=weekly"></script>
 <script src="/js/create-holiday.js"></script>

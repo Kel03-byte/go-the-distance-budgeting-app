@@ -1,3 +1,5 @@
+{{!-- Main Page Layout --}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,20 +16,19 @@
         <h1>Go The Distance Travel Budget</h1>
         <nav>
             <ul>
-                <li><a href='/'>Home</a></li>
                 {{#if loggedIn}}
                 <li><button href='/' id='logout'>Log Out</button></li>
-                 {{else}}
-                 <li><a href='/login'>Login</a></li>
-                 <li><a href='/signup'>Sign Up</a></li>
-                  {{/if}}
+                {{else}}
+                <li><a href='/login'>Login</a></li>
+                <li><a href='/signup'>Sign Up</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
 
-<main>
-    {{{body}}}
-</main>
+    <main>
+        {{{body}}}
+    </main>
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}

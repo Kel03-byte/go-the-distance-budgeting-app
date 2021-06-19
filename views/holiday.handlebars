@@ -1,17 +1,8 @@
-{{!-- This is where user is taken once they are logged in --}}
-{{!-- Contains budget info --}}
+{{!-- If logged in or after creating a holiday then you are brought here --}}
 
-<p>This page will display the user's budget info</p>
+{{!-- Holiday Info Page --}}
 
-<!-- Total Budget Amount -->
-
-<label for="budget">Enter your Holiday Budget Amount:
-    <input type="number" name="holiday-budget-total" placeholder="$" id="total_budget">
-</label>
-
-<input type="submit" id="total-budget-btn">
-
-<div id="holiday-budget">{{budget}}</div>
+<p>This page will display the user's holiday info</p>
 
 {{#if holidays.length}}
 {{#each holidays as |holiday|}}
@@ -19,47 +10,7 @@
 {{/each}}
 {{/if}}
 
-
-<button id="addExpenseButton">Add Expense</button>
-
-<!-- Expense Input Modal -->
-<div id="expenseModal" class="expenseModal">
-    <!-- Modal content -->
-    <div class="modalContent">
-        <span class="closeButton">&times;</span>
-        <form id="expenseForm">
-            <label> Expense name: </label>
-            <input type="text" id="expense_name">
-            <label>Amount: </label>
-            <input type="text" id="cost" placeholder="$">
-            <label> Category: </label>
-            <select id="category">
-                <option value="" disabled selected>Select</option>
-                <option value="trasportation">Transportation</option>
-                <option value="food">Food</option>
-                <option value="accomodation">Accomodation</option>
-                <option value="entertainment">Entertainment</option>
-            </select>
-            <input type="submit" id="submitButton" class="button is-info">
-        </form>
-    </div>
-</div>
-
-<table style="width:90%" id="expense-table">
-    <tr>
-        <th>Expense</th>
-        <th>Amount</th>
-        <th>Category</th>
-    </tr>
-
-    <tr>
-            {{!-- {{#if expenses.length}}
-            {{#each expenses as |expense|}}
-            {{>holiday-details expense}}
-            {{/each}}
-            {{/if}} --}}
-    </tr>
-</table>
+<button id='add-expense-btn'>Add Expenses</button>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="/js/holiday-details.js"></script>

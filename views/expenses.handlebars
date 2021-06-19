@@ -1,0 +1,39 @@
+{{!-- After adding a Holiday you can choose to add an expense here --}}
+
+{{!-- Input details of Expenses --}}
+
+<!-- Form for the user to input their expenses -->
+
+<p>This page will display the user's expense info</p>
+
+<form id="expenseForm">
+    <label> Expense name: </label>
+    <input type="text" id="expense_name">
+    <label>Amount: </label>
+    <input type="text" id="cost" placeholder="$">
+    <label> Category: </label>
+    <select id="category">
+        <option value="" disabled selected>Select</option>
+        <option value="trasportation">Transportation</option>
+        <option value="food">Food</option>
+        <option value="accomodation">Accomodation</option>
+        <option value="entertainment">Entertainment</option>
+    </select>
+    <input type="submit" id="submitButton">
+</form>
+
+<!-- List for dispalying Expenses -->
+
+<ul>
+    <li>Expense</li>
+    <li>Cost</li>
+    <li>Category</li>
+{{#if expenses.length}}
+{{#each expenses as |expense|}}
+{{>expense-details expense}}
+{{/each}}
+{{/if}}
+</ul>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="/js/expense-details.js"></script>
