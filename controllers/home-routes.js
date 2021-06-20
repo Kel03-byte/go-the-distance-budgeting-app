@@ -18,8 +18,8 @@ router.get("/signup", (request, response) => {
 // Render Log In Page
 router.get("/login", (request, response) => {
   if (request.session.loggedIn) {
-      response.redirect("/create");
-      return;
+    response.redirect("/create");
+    return;
   }
   response.render('login');
 });
@@ -31,7 +31,7 @@ router.get("/create", (request, response) => {
   });
 });
 
-// Render Holiday Details
+// // Render Holiday Details
 router.get("/holiday", async (request, response) => {
   try {
     const holidayData = await Holiday.findAll({
@@ -58,7 +58,7 @@ router.get("/holiday", async (request, response) => {
 router.get("/expenses", async (request, response) => {
   try {
     const expenseData = await Expense.findAll({
-      include: [{ model: Holiday }],
+      include: [{ model: Holiday }, { model: User }],
     });
     const expenses = expenseData.map((data) => data.get({ plain: true }));
     response.render("expenses", {

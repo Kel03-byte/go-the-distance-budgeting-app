@@ -28,4 +28,15 @@ Holiday.hasMany(Expense, {
     onDelete: 'CASCADE'
 })
 
+// Gives the Expense a foreign key of user id
+Expense.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+// Links Expense Modal to User
+User.hasMany(Expense, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 module.exports = { User, Holiday, Expense };

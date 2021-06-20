@@ -17,10 +17,6 @@ Expense.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     cost: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -29,7 +25,14 @@ Expense.init(
       type: DataTypes.INTEGER,
       references: {
         model: "holiday",
-        key: "id",
+        key: "id"
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id"
       },
     },
   },

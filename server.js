@@ -4,6 +4,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const sessionMiddleware = require("express-session");
 const hbs = exphbs.create({});
+const chalk = require('chalk');
 
 // Stores all session data once user is signed in
 const SequelizeStore = require("connect-session-sequelize")(
@@ -43,5 +44,5 @@ app.use(routes);
 
 // Sets up the server to start listening at a port
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening at port ${PORT}`));
+  app.listen(PORT, () => console.log(chalk.red(`Now listening at port ${PORT}`)));
 });

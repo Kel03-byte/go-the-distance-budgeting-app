@@ -1,58 +1,30 @@
-// Function to add the Expense details (Name, Cost and Category)
+// Function to add the Expense details (Name and Cost)
 
-const submitButton = document.getElementById("submitButton")
+const addExpenseBtn = document.querySelector(".add-expense")
 
-submitButton.onclick = async function (event) {
+addExpenseBtn.onclick = async function (event) {
     event.preventDefault();
 
-    const expense_name = document.getElementById("expense_name").value;
-    const cost = document.getElementById("cost").value;
-    const category = document.getElementById("category").value;
+    const expense_name = document.querySelector(".expense-name").value;
+    const cost = document.querySelector(".cost").value;
 
-    if (expense_name && cost && category) {
+    if (expense_name && cost) {
         const response = await fetch("/api/expenses", {
             method: "POST",
             body: JSON.stringify({
                 expense_name,
                 cost,
-                category,
             }),
             headers: { "Content-Type": "application/json" },
         });
 
         if (response.ok) {
 
-            const nameListEl = $('#name-list')
-            const amountListEl = $('#amount-list')
-            const categoryListEl = $('#category-list')
-
-            const expenseNameItem = $("<ul><li>" + expense_name + "</li></ul>");
-            const expenseAmountItem = $("<ul><li>" + cost + "</li></ul>");
-            const expenseCategoryItem = $("<ul><li>" + category + "</li></ul>");
-
-            expenseNameItem.appendTo(nameListEl);
-            expenseAmountItem.appendTo(amountListEl);
-            expenseCategoryItem.appendTo(categoryListEl);
-
-            $(expense_name);
-            $(cost);
-            $(category);
-
             document.location.replace("/expenses");
 
         } else {
-            alert("Please try add your post again");
+            alert("Please try adding your expense again");
             return
         }
-    }
-    if (!expense_name) {
-        alert('Please add a name for your expense')
-        return
-    } else if (!cost) {
-        alert('Please add the cost of your expense')
-        return
-    } else if (!category) {
-        alert('Please pick a category for your expense')
-        return
     }
 };

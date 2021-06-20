@@ -2,15 +2,13 @@
 
 {{!-- Holiday Info Page --}}
 
-<p>This page will display the user's holiday info</p>
-
 {{#if holidays.length}}
 {{#each holidays as |holiday|}}
 {{>holiday-details holiday}}
 {{/each}}
 {{/if}}
 
-<button id='add-expense-btn'>Add Expenses</button>
+<button id='add-expense-btn'>Add Expenses!</button>
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="/css/holiday.css">
 <script src="/js/holiday-details.js"></script>

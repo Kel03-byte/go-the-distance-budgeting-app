@@ -1,4 +1,0 @@
-User signs in.
-User is taken to create a holiday by inputting holiday info
-Upon submitting holiday info - the data is saved in database
-User is redirected to a page where they can input expenses 

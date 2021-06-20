@@ -23,9 +23,13 @@ router.post('/', withAuth, async (request, response) => {
       expense_name: request.body.expense_name,
       cost: request.body.cost,
       category: request.body.category,
-      holiday_id: request.session.holiday_id
+      holiday_id: request.session.holiday_id,
+      user_id: request.session.user_id,
     });
-    response.status(200).json(expenseData);
+    request.session.save(() => {
+      request.session.loggedIn = true;
+      response.status(200).json(expenseData);
+    });
   } catch (error) {
     console.log(error);
     console.log(error.message);
