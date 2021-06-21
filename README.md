@@ -35,6 +35,10 @@ npm install
 
 ## Application
 
+Link to deployed application [Go-The-Distance](https://shrouded-shore-09406.herokuapp.com/)
+
+Images of Go The Distance
+
 Homepage
 ![Homepage](public/images/landingpage.png)
 
