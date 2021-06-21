@@ -21,7 +21,7 @@ router.get("/login", (request, response) => {
     response.redirect("/create");
     return;
   }
-  response.render('login');
+  response.render("login");
 });
 
 // Render Create Holiday Page
@@ -35,12 +35,12 @@ router.get("/create", (request, response) => {
 router.get("/holiday", async (request, response) => {
   try {
     const holidayData = await Holiday.findAll({
+      limit: 1,
+      order: [["createdAt", "DESC"]],
       include: [
         {
           model: User,
-          attributes: [
-            'username',
-          ],
+          attributes: ["username"],
         },
       ],
     });
@@ -63,7 +63,7 @@ router.get("/expenses", async (request, response) => {
     const expenses = expenseData.map((data) => data.get({ plain: true }));
     response.render("expenses", {
       expenses,
-      loggedIn: request.session.loggedIn
+      loggedIn: request.session.loggedIn,
     });
   } catch (error) {
     response.status(500).json(error.message);
