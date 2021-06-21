@@ -67,4 +67,4 @@ The following Youtube video was used to create the code for the holiday expenses
 
 ## Questions
 
-If you have any questions or would like to report and issue please contact any of the creators [Kellie Adams](https://github.com/Kel03-byte) , [Jacob Thomas](https://github.com/JacobxThomas) and [Elise Harman](https://github.com/harmane4)
+If you have any questions or would like to report and issue please contact any of the creators [Kellie Ryan](https://github.com/Kel03-byte) , [Jacob Thomas](https://github.com/JacobxThomas) and [Elise Harman](https://github.com/harmane4)
