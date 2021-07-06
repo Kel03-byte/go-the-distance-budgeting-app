@@ -5,7 +5,6 @@ const exphbs = require("express-handlebars");
 const sessionMiddleware = require("express-session");
 const hbs = exphbs.create({});
 const chalk = require("chalk");
-const compression = require("compression")
 
 // Stores all session data once user is signed in
 const SequelizeStore = require("connect-session-sequelize")(
@@ -42,8 +41,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
-
-app.use(compression())
 
 // Sets up the server to start listening at a port
 sequelize.sync({ force: false }).then(() => {
